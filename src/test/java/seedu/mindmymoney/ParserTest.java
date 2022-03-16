@@ -18,19 +18,24 @@ class ParserTest {
     @Test
     void parseCommand_normalInput_expectCorrectCommandObject() {
         String testInput = "help";
-        assertTrue(new Parser(testInput).parseCommand() instanceof HelpCommand);
+        Parser testParser = new Parser(testInput);
+        assertTrue(testParser.parseCommand() instanceof HelpCommand);
 
         testInput = "add description " + TEST_PRICE;
-        assertTrue(new Parser(testInput).parseCommand() instanceof AddCommand);
+        testParser = new Parser(testInput);
+        assertTrue(testParser.parseCommand() instanceof AddCommand);
 
         testInput = "update " + TEST_INDEX + " description " + TEST_PRICE;
-        assertTrue(new Parser(testInput).parseCommand() instanceof UpdateCommand);
+        testParser = new Parser(testInput);
+        assertTrue(testParser.parseCommand() instanceof UpdateCommand);
 
         testInput = "list";
-        assertTrue(new Parser(testInput).parseCommand() instanceof ListCommand);
+        testParser = new Parser(testInput);
+        assertTrue(testParser.parseCommand() instanceof ListCommand);
 
         testInput = "delete " + TEST_INDEX;
-        assertTrue(new Parser(testInput).parseCommand() instanceof DeleteCommand);
+        testParser = new Parser(testInput);
+        assertTrue(testParser.parseCommand() instanceof DeleteCommand);
     }
 
     /**
