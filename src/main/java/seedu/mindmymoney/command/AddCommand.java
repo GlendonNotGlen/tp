@@ -60,7 +60,7 @@ public class AddCommand extends Command {
      * @return true if the /e flag is present, false otherwise.
      */
     private boolean hasExpenditureFlag() {
-        return addInput.contains(FLAG_OF_EXPENSES);
+        return addInput.startsWith(FLAG_OF_EXPENSES);
     }
 
     /**
@@ -69,7 +69,7 @@ public class AddCommand extends Command {
      * @return true if the credit card flag is present, false otherwise.
      */
     private boolean hasCreditCardFlag() {
-        return addInput.contains(FLAG_OF_CREDIT_CARD);
+        return addInput.startsWith(FLAG_OF_CREDIT_CARD);
     }
 
     /**
@@ -96,7 +96,7 @@ public class AddCommand extends Command {
      * @return true if the /i flag is present, false otherwise.
      */
     private boolean hasIncomeFlag() {
-        return addInput.contains(FLAG_OF_INCOME);
+        return addInput.startsWith(FLAG_OF_INCOME);
     }
 
     /**
@@ -126,7 +126,7 @@ public class AddCommand extends Command {
             + "Category: " + category + "\n"
             + "Payment method: " + paymentMethod + "\n"
             + "Date: " + inputTime + "\n\n"
-            + "into the account\n");
+            + "into the account");
 
         if (!paymentMethod.equals("Cash")) {
             float balanceLeft = updateCreditCardTotalExpenditure(paymentMethod, amountFloat);
@@ -182,7 +182,7 @@ public class AddCommand extends Command {
                 + "into the account");
             System.out.println(System.lineSeparator());
         } catch (NumberFormatException e) {
-            throw new MindMyMoneyException("Income must be a whole number!");
+            throw new MindMyMoneyException("Income must be a whole number or your income is too high!");
         }
     }
 
@@ -203,7 +203,7 @@ public class AddCommand extends Command {
             throw new MindMyMoneyException("You are missing a flag in your command\n"
                 + "Type \"help /e\" to view the list of supported expenditure commands\n"
                 + "Type \"help /cc\" to view the list of supported Credit Card commands\n"
-                + "Type \"help /i\" to view the list of supported income commands\n");
+                + "Type \"help /i\" to view the list of supported income commands");
         }
     }
 }

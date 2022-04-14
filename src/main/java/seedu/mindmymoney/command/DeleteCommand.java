@@ -45,7 +45,7 @@ public class DeleteCommand extends Command {
     }
 
     /**
-     * Indicates whether the delete command is to delete a credit card by looking for the /cc flag.
+     * Indicates whether the delete command is to delete a credit card by looking for the /e flag.
      *
      * @return true if the /cc flag is present, false otherwise.
      */
@@ -212,7 +212,7 @@ public class DeleteCommand extends Command {
             throw new MindMyMoneyException("You are missing a flag in your command\n"
                     + "Type \"help /e\" to view the list of supported expenditure commands\n"
                     + "Type \"help /cc\" to view the list of supported Credit Card commands\n"
-                    + "Type \"help /i\" to view the list of supported income commands\n");
+                    + "Type \"help /i\" to view the list of supported income commands");
         }
     }
 }

@@ -73,7 +73,7 @@ public class UpdateCommand extends Command {
      * @return true if the /e flag is present, false otherwise.
      */
     private boolean hasExpensesFlag() {
-        return updateInput.contains(FLAG_OF_EXPENSES);
+        return updateInput.startsWith(FLAG_OF_EXPENSES);
     }
 
     /**
@@ -82,7 +82,7 @@ public class UpdateCommand extends Command {
      * @return true if the /cc flag is present, false otherwise.
      */
     private boolean hasCreditCardFlag() {
-        return updateInput.contains(FLAG_OF_CREDIT_CARD);
+        return updateInput.startsWith(FLAG_OF_CREDIT_CARD);
     }
 
     /**
@@ -91,7 +91,7 @@ public class UpdateCommand extends Command {
      * @return true if the /i flag is present, false otherwise.
      */
     private boolean hasIncomeFlag() {
-        return updateInput.contains(FLAG_OF_INCOME);
+        return updateInput.startsWith(FLAG_OF_INCOME);
     }
 
     /**
@@ -338,7 +338,7 @@ public class UpdateCommand extends Command {
             throw new MindMyMoneyException("You are missing a flag in your command\n"
                 + "Type \"help /e\" to view the list of supported expenditure commands\n"
                 + "Type \"help /cc\" to view the list of supported Credit Card commands\n"
-                + "Type \"help /i\" to view the list of supported income commands\n");
+                + "Type \"help /i\" to view the list of supported income commands");
         }
     }
 }
